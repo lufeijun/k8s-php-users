@@ -19,11 +19,6 @@ class Controller extends BaseController
     }
     
     $returnArray = ['status' => $status, 'message' => $message, 'values' => $data];
-    
-    if ( config('app.env') === 'local' && config('app.sql_debug') === true) {
-      $returnArray['queries'] = self::$queries;
-      return response()->json($returnArray, 200, [], JSON_UNESCAPED_UNICODE);
-    }
     return response()->json($returnArray, 200, [], JSON_UNESCAPED_UNICODE);
   }
 
