@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::any('/info', function(){
+  return response()->json([
+    "info" => "user"
+  ], 200, [], JSON_UNESCAPED_UNICODE);
+});
+
+
 Route::post('/list', [IndexController::class, 'list']);
 Route::post('/list/with/order', [IndexController::class, 'listWithOrder']);
 Route::post('/detail', [IndexController::class, 'detail']);
